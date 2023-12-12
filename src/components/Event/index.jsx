@@ -1,26 +1,21 @@
+import moment from "moment";
 import "./style.css";
 
-const Index = () => {
+const Event = ({
+    id, title, description, date,
+    location, created_at, updated_at
+}) => {
     return (
-        <div id="events">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Location</th>
-                        <th>Created at</th>
-                        <th>Updated at</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
+        <tr>
+            <td>{id}</td>
+            <td>{title}</td>
+            <td>{description}</td>
+            <td>{moment(date).format("DD.MM.YYYY HH:mm")}</td>
+            <td>{location}</td>
+            <td>{moment(created_at).fromNow()}</td>
+            <td>{moment(updated_at).fromNow()}</td>
+        </tr>
     );
 }
 
-export default Index;
+export default Event;
